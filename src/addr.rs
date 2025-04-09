@@ -22,6 +22,14 @@ pub type GuestVirtAddrRange = AddrRange<GuestVirtAddr>;
 /// Guest physical address range.
 pub type GuestPhysAddrRange = AddrRange<GuestPhysAddr>;
 
+//loongarch64 
+#[cfg(any(target_arch = "loongarch64"))]
+impl page_table_multiarch::loongarch::SvVirtAddr for GuestPhysAddr {
+    fn flush_tlb(_vaddr: Option<Self>) {
+        todo!()
+    }
+}
+
 #[cfg(any(target_arch = "riscv32", target_arch = "riscv64"))]
 impl page_table_multiarch::riscv::SvVirtAddr for GuestPhysAddr {
     fn flush_tlb(_vaddr: Option<Self>) {
