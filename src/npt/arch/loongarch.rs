@@ -84,9 +84,9 @@ impl PagingMetaData for LA64MetaData {
 /// using page table dir3, dir2, dir1 and pt, ignore dir4
 pub type LA64PageTable<I> = PageTable64<LA64MetaData, LA64PTE, I>;
 
-impl PagingHandler for addr::GuestPhysAddr {
-    // Implement required methods here
-}
+// impl PagingHandler for addr::GuestPhysAddr {
+//     // Implement required methods here
+// }
 
 pub type NestedPageTable<H> = PageTable64<LA64PageTable<GuestPhysAddr>, LA64PTE, H>;
 
